@@ -1,0 +1,11 @@
+= link_to 'about', page_path('about')
+br/
+= link_to 'contact', page_path('contact')
+
+- if @products.blank?
+  p
+    | No products yet
+- else
+  ul#products
+    - @products.each do |product|
+      li= link_to product.name, product_path(product)

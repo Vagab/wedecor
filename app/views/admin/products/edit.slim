@@ -1,0 +1,5 @@
+h1 Edit product Detail
+= simple_form_for [:admin, @product] do |f|
+  = render 'form', f: f
+  = f.button :submit
+= link_to 'Back', admin_product_path(@product)

@@ -1,0 +1,5 @@
+= link_to 'Keep shoping', products_path
+= render(@shopping_cart.line_items)
+br/
+= link_to 'Clear cart', shopping_cart_path(@shopping_cart), method: :delete,
+        data: {confirm: "Are you sure?"}
