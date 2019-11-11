@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2019_11_02_194636) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "price", default: "0.0"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.decimal "price", default: "0.0"
   end
 
   create_table "products_shopping_carts", id: false, force: :cascade do |t|
