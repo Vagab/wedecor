@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :users
+    resources :shopping_carts
   end
   root to: 'products#index'
   get "/about", to: "pages#about"

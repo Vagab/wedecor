@@ -3,3 +3,5 @@
 br/
 = link_to 'Clear cart', shopping_cart_path(@shopping_cart), method: :delete,
         data: {confirm: "Are you sure?"}
+br/
+= link_to 'Save order', shopping_carts_path(@shopping_cart)

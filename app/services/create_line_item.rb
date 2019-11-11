@@ -22,7 +22,6 @@ class CreateLineItem
   end
 
   def call
-    # product = Product.find(params[:product_id])
     line_item = add_product(@product)
     line_item.save
     Result.new true, line_item
