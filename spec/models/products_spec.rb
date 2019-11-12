@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
-  subject { build :product }
+  subject { build_stubbed :product }
 
   # it { should be_valid }
 

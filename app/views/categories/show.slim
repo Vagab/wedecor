@@ -1,0 +1,7 @@
+- if @products.blank?
+  p
+    | No products yet
+- else
+  ul#products
+    - @products.each do |product|
+      li= link_to product.name, product_path(product)

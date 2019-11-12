@@ -1,6 +1,4 @@
 h1= @product.name
 h2= @product.description
--ul #categories
-  - @product.categories.each do |category|
-    li= link_to category.name
+li= link_to @product.category.name, category_path(@product.category)
 = button_to 'Add to cart', line_items_path(product_id: @product)
