@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   has_and_belongs_to_many :shopping_carts
   belongs_to :category
   has_many :line_items
+  has_many :photos
 
   validates_numericality_of :price,
                             greater_than_or_equal_to: 0.0,
