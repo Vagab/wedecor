@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   validates :name, :description, :price, presence: true
 
   has_and_belongs_to_many :shopping_carts
+  belongs_to :category
   has_many :line_items
 
   validates_numericality_of :price,
