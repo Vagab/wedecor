@@ -20,7 +20,7 @@ class LineItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-
+    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     result = CreateLineItem.new(shopping_cart: @shopping_cart, product: product).call
     if result.success?
       redirect_to result.line_item.shopping_cart

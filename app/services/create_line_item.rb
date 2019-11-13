@@ -16,14 +16,14 @@ class CreateLineItem
     if current_item
       current_item.increment(:quantity)
     else
-      current_item = @shopping_cart.line_items.build(product_id: product.id)
+      current_item = @shopping_cart.line_items.new(product_id: product.id)
     end
     current_item
   end
 
   def call
     line_item = add_product(@product)
-    line_item.save
+    line_item.save!
     Result.new true, line_item
   rescue ActiveRecord::RecordInvalid => e
     Result.new false

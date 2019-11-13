@@ -8,4 +8,5 @@ module ApplicationHelper
     total = @shopping_cart.line_items.map(&:quantity).sum
     total if total > 0
   end
+
 end

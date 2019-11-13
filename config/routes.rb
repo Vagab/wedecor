@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products, only: %i[index show]
   resources :line_items
-  resources :shopping_carts
+  resources :shopping_carts do
+    member do
+      post :submit_cart
+    end
+  end
   resources :categories, only: :show
   namespace :admin do
     resources :products
