@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :products, only: %i[index show]
   resources :line_items
   resources :shopping_carts
+  resources :categories, only: :show
   namespace :admin do
     resources :products
     resources :users
