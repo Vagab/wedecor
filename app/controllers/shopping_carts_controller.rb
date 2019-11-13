@@ -68,7 +68,6 @@ class ShoppingCartsController < ApplicationController
   def destroy_shopping_cart
     @shopping_cart.destroy if @shopping_cart.id == session[:shopping_cart_id]
     session[:shopping_cart_id] = nil
-    # session[:shopping_cart_id] = nil if @shopping_cart.id == session[:shopping_cart_id]
     redirect_to root_path
   end
 
