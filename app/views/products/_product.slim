@@ -1,6 +1,7 @@
 p
   = link_to product.name, product_path(product)
 p #{product.price}
-= link_to image_tag(product.photos.first.image.url,
- class: 'media-object'),
-    product.photos.first.image.url, target: '_blank'
+- if !product.photos.empty?
+    = link_to image_tag(product.photos.first.image.url,
+     class: 'media-object'),
+        product.photos.first.image.url, target: '_blank'
