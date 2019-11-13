@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_180455) do
+ActiveRecord::Schema.define(version: 2019_11_12_184211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_180455) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_photos_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_180455) do
 
   add_foreign_key "line_items", "products"
   add_foreign_key "line_items", "shopping_carts"
+  add_foreign_key "photos", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "shopping_carts", "users"
 end
