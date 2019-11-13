@@ -1,6 +1,6 @@
-class CreateProduct
+class CreateCategory
 
-  class Result < Struct.new(:success, :product)
+  class Result < Struct.new(:success, :category)
     def success?
       success == true
     end
@@ -11,11 +11,11 @@ class CreateProduct
   end
 
   def call
-    product = Product.new(@attributes)
-    product.save!
-    Result.new(true, product)
+    category = Category.new(@attributes)
+    category.save!
+    Result.new true, category
   rescue ActiveRecord::RecordInvalid => e
-    Result.new(false)
+    Result.new false
   end
 
 end
