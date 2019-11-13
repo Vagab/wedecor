@@ -1,0 +1,9 @@
+h2.jumbotron All Categories
+- if @categories.blank?
+  p
+    | No categories yet
+- else
+  ul#categories
+    - @categories.each do |category|
+      li= link_to category.name, admin_category_path(category)
+= link_to 'New', new_admin_category_path

@@ -1,6 +1,13 @@
-h1= @product.name
+h2.jumbotron= @product.name
 h2= @product.description
 h2= @product.price
+- @product.photos.each do |photo|
+  p
+  = link_to image_tag(photo.image.url,
+   class: 'media-object'),
+      photo.image.url, target: '_blank'
+br/
+= link_to @product.category.name, admin_category_path(@product.category)
 br/
 = link_to 'Edit', edit_admin_product_path(@product)
 br/
