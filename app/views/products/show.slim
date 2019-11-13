@@ -1,6 +1,7 @@
 h2.jumbotron= @product.name
 h2= @product.description
 - @product.photos.each do |photo|
+  p
   = link_to image_tag(photo.image.url,
    class: 'media-object'),
       photo.image.url, target: '_blank'
