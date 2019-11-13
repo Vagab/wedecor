@@ -15,10 +15,8 @@ class ProductsController < ApplicationController
   end
 
   def load_products
-    # @products = Product.all
     @search = Product.ransack(params[:q])
     @products = @search.result
-    # @search.build_condition
   end
 
 end
