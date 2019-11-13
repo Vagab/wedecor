@@ -32,6 +32,8 @@ gem 'high_voltage'
 
 gem 'rspec-rails'
 
+gem 'ransack'
+
 gem 'rails-controller-testing'
 
 # Use Redis adapter to run Action Cable in production
