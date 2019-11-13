@@ -29,8 +29,7 @@ class ShoppingCartsController < ApplicationController
   end
 
   def submit_cart
-    SubmitCart.new(shopping_cart: @shopping_cart).call
-    redirect_to root_path, notice: "Order successfully submitted."
+    submit_shopping_cart
   end
 
   private
@@ -41,6 +40,11 @@ class ShoppingCartsController < ApplicationController
 
   def load_shopping_carts
     @shopping_carts = ShoppingCart.all
+  end
+
+  def submit_shopping_cart
+    SubmitCart.new(shopping_cart: @shopping_cart).call
+    redirect_to root_path, notice: "Order successfully submitted."
   end
 
   def create_shopping_cart
