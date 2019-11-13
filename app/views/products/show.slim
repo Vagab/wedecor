@@ -1,4 +1,4 @@
-h1= @product.name
+h2.jumbotron= @product.name
 h2= @product.description
 - @product.photos.each do |photo|
   = link_to image_tag(photo.image.url,
