@@ -1,8 +1,4 @@
 class LineItemsController < ApplicationController
-  include CurrentShoppingCart
-
-  before_action :set_shopping_cart, only: [:create]
-
   def index
     load_line_items
   end

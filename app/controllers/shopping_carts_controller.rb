@@ -8,6 +8,7 @@ class ShoppingCartsController < ApplicationController
   def show
   end
 
+  # TODO: ?
   def new
     build_shopping_cart
   end
@@ -15,11 +16,13 @@ class ShoppingCartsController < ApplicationController
   def edit
   end
 
+  # TODO: ?
   def create
     build_shopping_cart
     create_shopping_cart
   end
 
+  # TODO: ?
   def update
     update_shopping_cart
   end
@@ -28,9 +31,11 @@ class ShoppingCartsController < ApplicationController
     destroy_shopping_cart
   end
 
+  # TODO: to separate controller
   def submit_cart
     if user_signed_in?
       SubmitCart.new(shopping_cart: @shopping_cart).call
+      session[:shopping_cart_id] = nil
       redirect_to root_path, notice: "Order successfully submitted."
     else
       redirect_to new_user_session_path, alert: "You need to login first."

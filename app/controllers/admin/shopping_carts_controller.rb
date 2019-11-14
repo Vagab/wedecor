@@ -1,4 +1,4 @@
-class Admin::ShoppingCartsController < ApplicationController
+class Admin::ShoppingCartsController < AdminController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   def index
@@ -6,6 +6,7 @@ class Admin::ShoppingCartsController < ApplicationController
   end
 
   def show
+    @shopping_cart = ShoppingCart.find(params[:id])
   end
 
   private

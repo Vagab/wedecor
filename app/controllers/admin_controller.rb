@@ -1,5 +1,5 @@
-class AdminController < ApplicationController
-
+class AdminController < ActionController::Base
+  layout 'admin'
   before_action :check_user_role
 
   private
