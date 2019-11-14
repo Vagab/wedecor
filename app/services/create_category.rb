@@ -11,6 +11,7 @@ class CreateCategory
   end
 
   def call
+    return Result.new false if Category.find_by(name: @attributes[:name])
     category = Category.new(@attributes)
     category.save!
     Result.new true, category

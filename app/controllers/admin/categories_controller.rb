@@ -43,7 +43,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def build_category
-    @category = Category.new
+    @category = CategoryForm.new(category_params)
   end
 
   def create_category
@@ -70,9 +70,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def category_params
-    return {} unless params[:category]
+    return {} unless params[:category_form]
 
-    params.require(:category)
+    params.require(:category_form)
           .permit(:name)
   end
 
