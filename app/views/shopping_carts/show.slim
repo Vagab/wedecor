@@ -4,3 +4,5 @@ h2.jumbotron Your current order
 br/
 = link_to 'Clear cart', shopping_cart_path(@shopping_cart), method: :delete,
         data: {confirm: "Are you sure?"}
+br/
+= button_to 'Submit', submit_cart_shopping_cart_path(@shopping_cart)

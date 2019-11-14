@@ -7,10 +7,19 @@
 
     <p class="navbar-text float-right">
       <% if total_cart_items %>
-        <%= link_to shopping_cart_path(@shopping_cart) do %>
-          <span>Cart
-            <%= cart_count_over_one %>
-          </span>
+        <% if current_user && current_user.admin? %>
+          <%= link_to admin_shopping_cart_path(@shopping_cart) do %>
+            <span>Cart
+              <%= cart_count_over_one %>
+            </span>
+          <% end %>
+        <% end %>
+        <% if !current_user || current_user.base? %>
+          <%= link_to shopping_cart_path(@shopping_cart) do %>
+            <span>Cart
+              <%= cart_count_over_one %>
+            </span>
+          <% end %>
         <% end %>
       <% end %>
       |

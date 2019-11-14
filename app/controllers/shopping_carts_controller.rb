@@ -28,6 +28,11 @@ class ShoppingCartsController < ApplicationController
     destroy_shopping_cart
   end
 
+  def submit_cart
+    SubmitCart.new(shopping_cart: @shopping_cart).call
+    redirect_to root_path, notice: "Order successfully submitted."
+  end
+
   private
 
   def build_shopping_cart

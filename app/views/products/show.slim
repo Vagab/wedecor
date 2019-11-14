@@ -1,11 +1,10 @@
 h2.jumbotron= @product.name
 h2= @product.description
-= if !@product.photos.empty?
+- if !@product.photos.empty?
   - @product.photos.each do |photo|
-    p
-    = link_to image_tag(photo.image.url,
-     class: 'media-object'),
-        photo.image.url, target: '_blank'
+    p = link_to image_tag(photo.image.url,
+      class: 'media-object'),
+      photo.image.url, target: '_blank'
 br/
 = link_to @product.category.name, category_path(@product.category)
 = button_to 'Add to cart', line_items_path(product_id: @product)

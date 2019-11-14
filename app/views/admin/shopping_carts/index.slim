@@ -1,0 +1,7 @@
+- if @shopping_carts.blank?
+  p
+    | No orders yet
+- else
+  ul#carts
+    - @shopping_carts.each do |cart|
+      li= link_to cart.id, admin_shopping_cart_path(cart)
