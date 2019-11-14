@@ -29,8 +29,12 @@ class ShoppingCartsController < ApplicationController
   end
 
   def submit_cart
-    SubmitCart.new(shopping_cart: @shopping_cart).call
-    redirect_to root_path, notice: "Order successfully submitted."
+    if user_signed_in?
+      SubmitCart.new(shopping_cart: @shopping_cart).call
+      redirect_to root_path, notice: "Order successfully submitted."
+    else
+      redirect_to new_user_session_path, alert: "You need to login first."
+    end
   end
 
   private
