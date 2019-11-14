@@ -1,5 +1,7 @@
 class Admin::ProductsController < AdminController
 
+  # include ProductForm
+
   def new
     build_product
   end
@@ -34,7 +36,8 @@ class Admin::ProductsController < AdminController
   private
 
   def build_product
-    @product = Product.new(product_params)
+    # @product = Product.new(product_params)
+    @product = ProductForm.new(product_params)
   end
 
   def load_product
@@ -46,10 +49,10 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    return {} unless params[:product]
+    return {} unless params[:product_form]
 
-    params.require(:product)
-          .permit(:name, :description, :image, :price)
+    params.require(:product_form)
+          .permit(:name, :description, :price, :category_name)
   end
 
   def create_product
