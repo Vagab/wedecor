@@ -1,7 +1,5 @@
 class Admin::ProductsController < AdminController
 
-  # include ProductForm
-
   def new
     build_product
   end
@@ -36,7 +34,6 @@ class Admin::ProductsController < AdminController
   private
 
   def build_product
-    # @product = Product.new(product_params)
     @product = ProductForm.new(product_params)
   end
 
