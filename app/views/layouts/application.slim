@@ -1,14 +1,13 @@
 html
-  head.admin
+  head
     = render 'layouts/head'
 
-  body.admin
+  body
     p.navbar-text.float-right
       = render 'layouts/shopping_cart'
       span &nbsp
       = render 'layouts/header'
       span &nbsp
-      = render 'layouts/admin/header'
     div style=("display: none;")
     - if notice
       p.alert.alert-success= notice

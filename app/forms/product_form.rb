@@ -2,7 +2,7 @@ class ProductForm
 
   include ActiveModel::Model
 
-  attr_accessor :name, :description, :price, :category_name
+  attr_accessor :name, :description, :price, :category_id
 
   validates :name, :description, :price, presence: true
 

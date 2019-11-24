@@ -1,6 +1,9 @@
 h2.jumbotron All Products
 
-= render "search_box"
-
-.container
-  = render partial: "product", collection: @products
+= render "layouts/search_box"
+- if @products.blank?
+  p
+    | No products yet
+- else
+  .container
+    = render partial: "product", collection: @products

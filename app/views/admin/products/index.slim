@@ -1,9 +1,10 @@
 h2.jumbotron All Products
+
+= render "layouts/search_box"
 - if @products.blank?
   p
     | No products yet
 - else
-  ul#products
-    - @products.each do |product|
-      li= link_to product.name, admin_product_path(product)
+  .container
+    = render partial: "product", collection: @products
 = link_to 'New', new_admin_product_path

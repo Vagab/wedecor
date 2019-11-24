@@ -1,0 +1,9 @@
+- if total_cart_items
+  - if current_user && current_user.admin?
+    = link_to admin_shopping_cart_path(@shopping_cart) do
+      span Cart&nbsp
+      = cart_count_over_one
+  - if !current_user || current_user.base?
+    = link_to shopping_cart_path(@shopping_cart) do
+      span Cart&nbsp
+      = cart_count_over_one

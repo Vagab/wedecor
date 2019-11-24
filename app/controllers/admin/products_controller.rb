@@ -42,14 +42,15 @@ class Admin::ProductsController < AdminController
   end
 
   def load_products
-    @products = Product.all
+    @search = Product.ransack(params[:q])
+    @products = @search.result
   end
 
   def product_params
     return {} unless params[:product_form]
 
     params.require(:product_form)
-          .permit(:name, :description, :price, :category_name)
+          .permit(:name, :description, :price, :category_id)
   end
 
   def create_product

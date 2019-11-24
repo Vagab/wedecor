@@ -1,0 +1,17 @@
+= link_to 'about', page_path('about'), :class => 'navbar-link'
+span &nbsp
+= link_to 'contact', page_path('contact'), :class => 'navbar-link'
+span &nbsp
+- if user_signed_in?
+  | Logged in as&nbsp
+  strong
+    = current_user.email
+  span &nbsp
+  = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
+  span &nbsp
+  nbsp
+  = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+- else
+  = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+  span &nbsp
+  = link_to "Login", new_user_session_path, :class => 'navbar-link'
